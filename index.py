@@ -13,7 +13,7 @@ def get_database():
     import pymongo
 
     # Provide the mongodb atlas url to connect python to mongodb using pymongo
-    CONNECTION_STRING = os.getenv.MONGOURI
+    CONNECTION_STRING = os.getenv("MONGOURI")
 
     # Create a connection using MongoClient. You can import MongoClient or use pymongo.MongoClient
     from pymongo import MongoClient
