@@ -1,6 +1,10 @@
 import collections
 import discord
 from bson.objectid import ObjectId
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 client = discord.Client()
 
@@ -9,7 +13,7 @@ def get_database():
     import pymongo
 
     # Provide the mongodb atlas url to connect python to mongodb using pymongo
-    CONNECTION_STRING = "mongodb+srv://simon:AQS174i2c16FDXXe@cluster0.gkzmn.mongodb.net/Cluster0?retryWrites=true&w=majority"
+    CONNECTION_STRING = os.getenv.MONGOURI
 
     # Create a connection using MongoClient. You can import MongoClient or use pymongo.MongoClient
     from pymongo import MongoClient
@@ -35,4 +39,4 @@ async def on_message(message):
             collection.update_one(myquery, newvalues)
             await message.reply("Okay counter: " + str(int(num["count"]) + 1))
 
-client.run('OTM4MzY3OTMzNjkwODE4NTYw.YfpRPQ.QcLfd5_KVY7BBYaQ-gdlbPipS74')
+client.run(os.getenv("TOKEN"))
