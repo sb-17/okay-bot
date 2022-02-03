@@ -29,7 +29,7 @@ async def on_message(message):
     if message.channel.id == 938367285834420245:
         if message.content == '.' or message.content.lower() == 'okay' or message.content.lower() == 'ok' or message.content.lower() == 'k' or message.content.lower() == 'okej':
             collection = db["counter"]
-            num = collection.find_one()
+            num = collection.find_one({ '_id': ObjectId("61fa5e650bee30fe96c86643") })
             myquery = { '_id': ObjectId("61fa5e650bee30fe96c86643") }
             newvalues = { '$set': { 'count': str(int(num["count"]) + 1) } }
             collection.update_one(myquery, newvalues)
